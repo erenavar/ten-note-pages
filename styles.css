@@ -1,0 +1,84 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f4f0fa;
+  --surface: #ffffff;
+  --text: #242033;
+  --muted: #696276;
+  --line: #ddd5e8;
+  --accent: #6654c7;
+  --accent-soft: #ede8ff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #11101a;
+    --surface: #1c1a28;
+    --text: #f5f1ff;
+    --muted: #b7b0c4;
+    --line: #393347;
+    --accent: #b4a4ff;
+    --accent-soft: #29233f;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+header, main, footer {
+  width: min(760px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 18px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+.brand img { width: 34px; height: 34px; border-radius: 9px; }
+nav { display: flex; gap: 18px; }
+nav a, main a, footer a { color: var(--accent); }
+nav a { font-size: .94rem; text-decoration: none; }
+
+main {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: clamp(26px, 6vw, 56px);
+  box-shadow: 0 18px 50px rgb(43 31 74 / .08);
+}
+
+.eyebrow { color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+h1 { margin: 8px 0 10px; font-size: clamp(2rem, 7vw, 3.6rem); line-height: 1.05; letter-spacing: -.045em; }
+h2 { margin-top: 2.3rem; font-size: 1.25rem; line-height: 1.25; }
+h3 { margin-top: 1.7rem; }
+p, li { color: var(--muted); }
+strong { color: var(--text); }
+.lede { font-size: 1.08rem; }
+.meta { margin: 0 0 2rem; color: var(--muted); font-size: .9rem; }
+.callout { margin: 2rem 0; padding: 18px 20px; border-radius: 16px; background: var(--accent-soft); }
+.callout p { margin: 0; }
+footer { padding: 22px 0 42px; color: var(--muted); font-size: .84rem; }
+
+@media (max-width: 520px) {
+  header { align-items: flex-start; gap: 14px; }
+  nav { gap: 10px; flex-direction: column; text-align: right; }
+  main { border-radius: 18px; }
+}
